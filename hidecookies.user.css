@@ -84,7 +84,12 @@ if varSome {
 		display: none !important;
 	}
 }
-
+if varChat {
+	#giosg_live_chat_dialog,
+	#giosg_chat_now_button {
+		display: none !important;
+	}
+}
 /* Site specific rules & fixes + other popups/annoyances */
 @-moz-document domain("muropaketti.com"),
 domain("hymy.fi"),
@@ -131,6 +136,8 @@ domain("is.fi") {
 		div[id^="ShareButtons"].share-buttons {
 			display: none !important;
 		}
+		.social-col,
+		.footer-row.footer-some,
 		.image > .quick-share {
 			display: none !important;
 		}
@@ -531,6 +538,19 @@ domain("findance.com") {
 		}
 	}
 }
+@-moz-document domain("high.fi") {
+	if varNews {
+		#onesignal-popover-container,
+		.onesignal-popover-container {
+			display: none !important;
+		}
+	}
+	if varSome {
+		article a.twitter {
+			display: none !important;
+		}
+	}
+}
 @-moz-document domain("kamux.fi") {
 	#CybotCookiebotDialog {
 		display: none !important;
@@ -547,6 +567,17 @@ domain("java.com") {
 @-moz-document domain("verkkokauppa.com") {
 	if varCookies {
 		div.vk-cookie-notification {
+			display: none !important;
+		}
+	}
+	if varMisc {
+		#launcher,
+		.help-widget {
+			display: none !important;
+		}
+	}
+	if varNews {
+		.footer__catalog-newsletter-container {
 			display: none !important;
 		}
 	}
