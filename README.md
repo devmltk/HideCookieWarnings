@@ -1,9 +1,10 @@
 Hide those "This site uses cookies" elements from various websites, mostly finnish websites.
+
 Optionally: 
-+disable miniplayers
-+hide newsletters/browser notifications dialogs
-+adblock user warnings
-+social media share links/buttons
++ disable miniplayers
++ hide newsletters/browser notifications dialogs
++ adblock user warnings
++ social media share links/buttons
 
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://github.com/devmltk/HideCookiesWarnings/raw/master/hidecookies.user.css)
 
