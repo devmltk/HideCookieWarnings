@@ -1,0 +1,559 @@
+/* ==UserStyle==
+@name           Piilota turhat kyltit
+@namespace      github.com/devmltk/HideCookiesWarnings
+@homepageURL    https://www.github.com/devmltk/HideCookiesWarnings
+@updateURL      https://www.github.com/devmltk/HideCookiesWarnings/hidecookies.user.css
+@version        0.1.0
+@description 	  Piilota evästekyltit, uutiskirjeet, mainostenesto valitukset, somejako nappulat ja muut turhat elementit sivustoilta.
+@author         DevMltk
+@license        CC-BY-NC-ND-4.0
+@preprocessor   stylus
+@var            checkbox varMiniplayers    "Piilota minisoittimet"  1
+@var            checkbox varNews    "Piilota uutiskirjeet"  1
+@var            checkbox varAdblock    "Piilota mainostenesto varoitukset"  1
+@var            checkbox varSome    "Piilota somejaot"  1
+==/UserStyle== */
+/* 
+--
+-- Generic Rules 
+--
+*/
+#GDPRConsent,
+#banner-accept-cookies,
+#ckieconsent,
+#cookie-banner,
+#cookie-consent,
+#cookie-consent-popup,
+#cookie-diss,
+#cookie-jar,
+#cookie-law,
+#cookie-notice,
+#cookie-notification,
+#cookieDisclaimer,
+#cookie_notice,
+#cookiecompliance,
+#cookieinfolayer,
+#cookielaw,
+#cookielawwarning,
+#cookienotify,
+#cookies-info,
+#dna-gdpr-info,
+#ePrivacyDisclaimer,
+#ensNotifyBanner,
+#footer-cookie,
+#gdpr-banner,
+#gdprpopup,
+#jc-cookie-notice,
+#js-gdpr-consent-banner,
+#kaleva-cookie-consent,
+#msccBanner,
+#optanon,
+#optanon-popup-wrapper,
+.CookieWarning,
+._cookie-banner,
+.browser-consent,
+.cc-window,
+.cc_banner-wrapper,
+.cookie-alert,
+.cookie-banner,
+.cookie-consent,
+.cookie-disclaimer,
+.cookie-info,
+.cookie-notice,
+.cookie_content,
+.cookiebanner__container,
+.gdpr-consent-banner,
+.js-cookie-consent,
+.js-cookie-notice,
+.mtvcookienotificationscontainer,
+.notice-cookie,
+.optanon-alert-box-wrapper,
+.qc-cmp-showing {
+	display: none !important;
+}
+.qc-cmp-ui-showing {
+	overflow: visible;
+}
+if varSome {
+	#disqus_thread {
+		display: none !important;
+	}
+}
+
+/* Site specific rules & fixes + other popups/annoyances */
+@-moz-document domain("muropaketti.com"),
+domain("hymy.fi"),
+domain("alibi.fi"),
+domain("kotiliesi.fi"),
+domain("suomenkuvalehti.fi"),
+domain("rakennusmaailma.fi"),
+domain("tekniikanmaailma.fi"),
+domain("nettiauto.fi"),
+domain("ampparit.fi"),
+domain("plaza.net"),
+domain("huutokaupat.fi"),
+regexp("(http[s]*:\\/\\/|)[www.]*netti(vene|markkina|auto|moto|kone|karavaani|varaosa|vuokraus|mokki)\\.com.*") {
+	/* OravaMedia */
+	#cmp-faktor-io-parent {
+		display: none !important;
+	}
+}
+@-moz-document domain("oikotie.fi"),
+domain("tiede.fi"),
+domain("akuankka.fi"),
+domain("supla.fi"),
+domain("hs.fi"),
+domain("ruutu.fi"),
+domain("hintaseuranta.fi"),
+domain("huuto.net"),
+domain("nelonen.fi"),
+domain("sahkovertailu.fi"),
+domain("is.fi") {
+	/* SanomaMedia */
+	#sccm-container {
+		display: none !important;
+	}
+	.sccm-noscroll {
+		overflow: visible !important;
+	}
+	if varNews {
+		div[id^="ShareButtons"].share-buttons {
+			display: none !important;
+		}
+		.image > .quick-share {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("is.fi") {
+	if varMiniplayers {
+		.video-container {
+			left: 0px !important;
+			top: 0px !important;
+			box-sizing: content-box;
+			position: absolute !important;
+			width: 100% !important;
+			height: 100% !important;
+		}
+		.small-video-caption {
+			display: none !important;
+		}
+		.video-container.during-animation {
+			background: #000 !important;
+			transition: none !important;
+			box-shadow: none !important;
+			visibility: visible !important;
+		}
+		article header > .video > .video-container.during-animation,
+		.article-main-video > .video > .video-container.during-animation,
+		.article-main-image > .video > .video-container.during-animation,
+		article .body > .video > .video-container.during-animation,
+		.theatre-video-container .video > .video-container.during-animation,
+		.teaser .video > .video-container.during-animation {
+			background-color: #000;
+			transition: none !important;
+		}
+
+		article header > .video > .video-container.during-animation .rplayer-container,
+		.article-main-video > .video > .video-container.during-animation .rplayer-container,
+		.article-main-image > .video > .video-container.during-animation .rplayer-container,
+		article .body > .video > .video-container.during-animation .rplayer-container,
+		.theatre-video-container .video > .video-container.during-animation .rplayer-container,
+		.teaser .video > .video-container.during-animation .rplayer-container {
+			visibility: visible !important;
+		}
+
+		article header > .video > .video-container.transparent .rplayer-container,
+		.article-main-video > .video > .video-container.transparent .rplayer-container,
+		.article-main-image > .video > .video-container.transparent .rplayer-container,
+		article .body > .video > .video-container.transparent .rplayer-container,
+		.theatre-video-container .video > .video-container.transparent .rplayer-container,
+		.teaser .video > .video-container.transparent .rplayer-container {
+			opacity: 1 !important;
+		}
+
+		article header > .video > .video-container .rplayer-container,
+		.article-main-video > .video > .video-container .rplayer-container,
+		.article-main-image > .video > .video-container .rplayer-container,
+		article .body > .video > .video-container .rplayer-container,
+		.theatre-video-container .video > .video-container .rplayer-container,
+		.teaser .video > .video-container .rplayer-container {
+			transition: none !important;
+		}
+	}
+}
+@-moz-document domain("iltalehti.fi"),
+domain("aamulehti.fi"),
+domain("etuovi.com"),
+domain("kauppalehti.fi"),
+domain("talouselama.fi"),
+domain("arvopaperi.fi"),
+domain("satakunnankansa.fi"),
+domain("urakkamaailma.fi"),
+domain("kauppalehti.fi"),
+domain("autotalli.com"),
+domain("autojerry.fi"),
+domain("katsastushinnat.fi"),
+domain("etuovi.com"),
+domain("telkku.com"),
+domain("mikrobitti.fi"),
+domain("vuokraovi.com") {
+	/* AlmaMedia */
+	#bottomBanner,
+	#alma-content-router-slot-ALMA_COOKIE_DISCLAIMER {
+		display: none !important;
+	}
+	div[aria-labelledby="alma-data-policy-banner__description"],
+	div[id^=ALMACR-container-ALMACR-widget-] div.alma-data-policy-banner {
+		display: none !important;
+		padding: 0 !important;
+		width: 0 !important;
+		height: 0 !important;
+	}
+	if varNews {
+		#il-newsletter-banner {
+			display: none !important;
+		}
+	}
+	if varSome {
+		.article-share {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("iltalehti.fi") {
+	if varMiniplayers {
+		.news-container .jw-skin-iltv.jwplayer-minimize {
+			overflow: hidden !important;
+		}
+		.jwplayer {
+			width: 100% !important;
+			position: relative !important;
+			top: 0 !important;
+			left: 0 !important;
+			right: 0 !important;
+			bottom: 0 !important;
+			z-index: auto !important;
+			border-top: none !important;
+		}
+		.jwplayer-minimize__bottom {
+			display: none !important;
+		}
+		.jw-related-shelf-container {
+			display: none !important;
+		}
+		.jw-nextup-container-visible {
+			display: none !important;
+		}
+		.jwplayer:not(.jw-state-playing):not(.jw-state-paused) .jw-preview {
+			display: block !important;
+		}
+		.jwplayer .jw-overlays .jw-plugin-related.jw-plugin-related-open {
+			display: none !important;
+		}
+		.jwplayer.jw-flag-overlay-open-related .jw-controls,
+		.jwplayer.jw-flag-overlay-open-related .jw-title {
+			display: block !important;
+		}
+	}
+}
+@-moz-document domain("liveleak.com") {
+	if disableMiniplayers {
+		div[id^="player_"] > div.vjs-grid {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("telkku.com") {
+	.menu .nav__other__services {
+		display: none !important;
+	}
+	.footer-wrapper {
+		display: none !important;
+	}
+}
+@-moz-document domain("teknavi.fi") {
+	.site-top__some {
+		display: none !important;
+	}
+}
+@-moz-document domain("autojerry.fi") {
+	if varNews {
+		#exitPopupModal,
+		#body > div.modal-backdrop.fade.in {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("maanmittauslaitos.fi") {
+	.cc_banner-wrapper ~ .dialog-off-canvas-main-canvas {
+		padding-top: 0px;
+	}
+	div.app-notifications {
+		display: none !important;
+	}
+}
+@-moz-document domain("kartta.paikkatietoikkuna.fi") {
+	body > div.divmanazerpopup.guidedtour {
+		display: none !important;
+	}
+}
+@-moz-document domain("mobiili.fi") {
+	#readnext {
+		display: none !important;
+	}
+}
+@-moz-document domain("suomimobiili.fi") {
+	.tplis-cl-cookies {
+		display: none !important;
+	}
+}
+@-moz-document domain("userstyles.org") {
+	#root > div.NotificationLine {
+		display: none !important;
+	}
+	if varNews {
+		#root > div.android_button_banner,
+		#root > div.overlay_background {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("power.fi") {
+	pwr-cookie-notification {
+		display: none !important;
+	}
+}
+@-moz-document domain("paakallo.fi") {
+	#privacy {
+		display: none !important;
+	}
+}
+@-moz-document domain("phonearena.com") {
+	.fc-consent-root {
+		display: none !important;
+	}
+}
+@-moz-document domain("deezer.com") {
+	#dzr-app div.page-alerts,
+	#page_content div.abp-banner-container,
+	#page_content > div.ads,
+	#page_sidebar > div.sidebar-header > div.conversion-banner {
+		display: none !important;
+	}
+	#notification.page-notifications {
+		min-width: 100px;
+		width: 250px;
+		left: 50%;
+		right: 50%;
+		transform: translateX(-50%);
+	}
+	#notification.page-notifications > .notification {
+		-webkit-transform: none;
+		-ms-transform: none;
+		transform: none;
+	}
+	#notification.page-notifications > .notification > h2 {
+		text-align: center;
+	}
+}
+
+@-moz-document domain("mtvuutiset.fi") {
+	#top > div.container > header > section {
+		display: none !important;
+	}
+	if varMiniplayers {
+		.katsomo-player-container[id^=player_] {
+			transition: none !important;
+			transform: none !important;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: auto;
+			border-style: none;
+			position: relative !important;
+		}
+		.sticky-player-initialised + .player-container-bg {
+			position: absolute !important;
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("suomif1.com"),
+domain("leijonat.com"),
+domain("valioliiga.com"),
+domain("nhlsuomi.com"),
+domain("laliiga.com"),
+domain("suomifutis.com") {
+	if varNews {
+		body > div > div.sm-webpush.animated.slideInDown {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("youtube.com") {
+	#ticker,
+	#alert-banner {
+		display: none !important;
+	}
+	if disableMiniplayers {
+		body > ytd-app > ytd-popup-container ytd-mealbar-promo-renderer,
+		.ytp-ce-element.ytp-ce-element-show,
+		.ytd-thumbnail #hover-overlays,
+		body > div.ytp-popup.ytp-contextmenu > div > div > a {
+			display: none !important;
+		}
+		.html5-endscreen.ytp-player-content.videowall-endscreen {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("google.com"),
+domain("google.fi") {
+	div[jscontroller][aria-label="Puhehaku"],
+	div[jscontroller][aria-label="Search by voice"],
+	#fbar > div > div:nth-child(2) {
+		display: none !important;
+	}
+}
+
+@-moz-document domain("microsoft.com") {
+	if varNews {
+		#email-newsletter-dialog {
+			display: none !important;
+		}
+	}
+	body {
+		overflow: visible !important;
+	}
+}
+@-moz-document domain("vmware.com") {
+	#_evidon_banner {
+		display: none !important;
+	}
+}
+@-moz-document domain("kuvaton.com") {
+	#ticker {
+		display: none !important;
+	}
+}
+@-moz-document domain("telia.fi") {
+	div[data-cookiename="cookies_fi"].notification {
+		display: none !important;
+	}
+}
+@-moz-document domain("kia.com") {
+	#eut_header {
+		margin-top: 0px !important;
+	}
+}
+@-moz-document domain("lexus.fi") {
+	.l-disclaimer {
+		display: none !important;
+	}
+}
+@-moz-document domain("valtra.fi") {
+	#page div.disclaimerpopup > div.disclaimer {
+		display: none !important;
+	}
+}
+@-moz-document domain("high.fi"),
+domain("afterdawn.com"),
+domain("download.fi"),
+domain("findance.com") {
+	if varNews {
+		#onesignal-popover-container,
+		.onesignal-popover-container {
+			display: none !important;
+		}
+	}
+	if varSome {
+		.jakonappulat {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("kamux.fi") {
+	#CybotCookiebotDialog {
+		display: none !important;
+	}
+}
+@-moz-document domain("deere.fi"),
+domain("java.com") {
+	div[id^="pop-div"] {
+		display: none !important;
+	}
+}
+@-moz-document domain("verkkokauppa.com") {
+	div.vk-cookie-notification {
+		display: none !important;
+	}
+}
+@-moz-document domain("spotify.com") {
+	body div.mh-message-bar {
+		display: none !important;
+	}
+}
+@-moz-document domain("taloon.com") {
+	if varNews {
+		div#peitto.popCloser,
+		div#pop {
+			display: none !important;
+		}
+		#header {
+			margin-top: 60px !important;
+		}
+	}
+}
+@-moz-document domain("netrauta.fi") {
+	body > div.featherlight {
+		display: none !important;
+	}
+}
+@-moz-document domain("ammattiautot.fi") {
+	if varNews {
+		body > footer.block-newsletter-signup {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("uusiteknologia.fi") {
+	if varSome {
+		.apss-social-share {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("radiopori.fi") {
+	if varSome {
+		#zone-somehakupalkki,
+		.field-name-fb-jako-ds-,
+		.field-name-service-links-displays-twitter-widget,
+		.field-name-service-links-displays-google-plus-one {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("onninen.com") {
+	#OnninenCookieInfo {
+		display: none !important;
+	}
+}
+@-moz-document domain(gamereactor.fi) {
+	if varAdblock {
+		#darkoverlay,
+		#helloDollywarning {
+			display: none !important;
+		}
+	}
+	if varSome {
+		#facebooknotification {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain(akkula.fi) {
+	.message-cookies {
+		display: none !important;
+	}
+}
