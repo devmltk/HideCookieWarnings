@@ -668,3 +668,18 @@ domain("java.com") {
 		}
 	}
 }
+@-moz-document domain("demokraatti.fi") {
+    if varSome {
+        div[class^="SinglePostStyles__Container-"] div.animated.pulse {
+            display: none !important;
+        }
+        div[class^="SinglePostStyles__Container-"] div[class^="FollowUsStyles__Container"] {
+            display: none !important;
+        }
+    }
+    if varNews {
+        div[class^="SinglePostStyles__Container-"] div[class^="MagazineStyles__Container-"] {
+            display: none !important;
+        }
+    }
+}
