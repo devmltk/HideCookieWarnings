@@ -683,3 +683,10 @@ domain("java.com") {
         }
     }
 }
+@-moz-document domain("reddit.com") {
+	if varCookies {
+		#SHORTCUT_FOCUSABLE_DIV > div:last-child {
+			display: none !important;
+		}
+	}
+}
