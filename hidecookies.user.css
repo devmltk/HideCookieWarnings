@@ -22,7 +22,6 @@
 --
 */
 if varCookies {
-	#GDPRConsent,
 	#banner-accept-cookies,
 	#ckieconsent,
 	#cookie-banner,
@@ -33,6 +32,7 @@ if varCookies {
 	#cookie-law,
 	#cookie-notice,
 	#cookie-notification,
+	#cookie-policy-info,
 	#cookieDisclaimer,
 	#cookie_notice,
 	#cookiecompliance,
@@ -46,11 +46,13 @@ if varCookies {
 	#ensNotifyBanner,
 	#footer-cookie,
 	#gdpr-banner,
+	#GDPRConsent,
 	#gdprpopup,
 	#jc-cookie-notice,
 	#js-gdpr-consent-banner,
 	#kaleva-cookie-consent,
 	#msccBanner,
+	#OnninenCookieInfo,
 	#optanon,
 	#optanon-popup-wrapper,
 	.CookieWarning,
@@ -90,6 +92,7 @@ if varChat {
 		display: none !important;
 	}
 }
+
 /* Site specific rules & fixes + other popups/annoyances */
 @-moz-document domain("muropaketti.com"),
 domain("hymy.fi"),
@@ -631,21 +634,7 @@ domain("java.com") {
 		}
 	}
 }
-@-moz-document domain("onninen.com") {
-	if varCookies {
-		#OnninenCookieInfo {
-			display: none !important;
-		}
-	}
-}
-@-moz-document domain("slo.fi") {
-	if varCookies {
-		#notice-cookie-block {
-			display: none !important;
-		}
-	}
-}
-@-moz-document domain(gamereactor.fi) {
+@-moz-document domain("gamereactor.fi") {
 	if varAdblock {
 		#darkoverlay,
 		#helloDollywarning {
@@ -658,9 +647,16 @@ domain("java.com") {
 		}
 	}
 }
-@-moz-document domain(akkula.fi) {
+@-moz-document domain("akkula.fi") {
 	if varCookies {
 		.message-cookies {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("msi.com") {
+	if varCookies {
+		#ccc {
 			display: none !important;
 		}
 	}
