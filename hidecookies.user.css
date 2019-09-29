@@ -661,3 +661,10 @@ domain("java.com") {
 		}
 	}
 }
+@-moz-document domain("kelikamerat.info") {
+	if varCookies {
+		#sliding-popup {
+			display: none !important;
+		}
+	}
+}
