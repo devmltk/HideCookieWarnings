@@ -22,18 +22,23 @@
 --
 */
 if varCookies {
+	cookie-consent,
+	#bCookieSlide,
 	#banner-accept-cookies,
 	#ckieconsent,
+	#consent_blackbar,
 	#cookie-banner,
 	#cookie-consent,
 	#cookie-consent-popup,
 	#cookie-diss,
+	#cookie-information,
 	#cookie-jar,
 	#cookie-law,
 	#cookie-notice,
 	#cookie-notification,
 	#cookie-policy-info,
 	#cookieDisclaimer,
+	#cookieWarning,
 	#cookie_notice,
 	#cookiecompliance,
 	#cookieinfolayer,
@@ -49,16 +54,20 @@ if varCookies {
 	#gdpr-banner,
 	#GDPRConsent,
 	#gdprpopup,
+	#hv-gdpr,
 	#jc-cookie-notice,
 	#js-gdpr-consent-banner,
+	#js_cookie_window,
 	#kaleva-cookie-consent,
 	#msccBanner,
 	#OnninenCookieInfo,
 	#optanon,
 	#optanon-popup-wrapper,
-	.CookieWarning,
+	#purch-gdpr-banner,
+	#v-cookielaw,
 	._cookie-banner,
 	.browser-consent,
+	.cc-cookies,
 	.cc-window,
 	.cc_banner-wrapper,
 	.cookie-alert,
@@ -67,14 +76,20 @@ if varCookies {
 	.cookie-disclaimer,
 	.cookie-info,
 	.cookie-notice,
+	.cookie-notification,
+	.cookieNotice,
 	.cookie_content,
+	.cookie_window,
 	.cookiebanner__container,
+	.cookies,
+	.cookiewarning,
+	.CookieWarning,
 	.gdpr-consent-banner,
 	.js-cookie-consent,
 	.js-cookie-notice,
 	.mtvcookienotificationscontainer,
-	.notice-cookie,
 	.notice--cookie,
+	.notice-cookie,
 	.optanon-alert-box-wrapper,
 	.qc-cmp-showing {
 		display: none !important;
@@ -90,7 +105,9 @@ if varSome {
 }
 if varChat {
 	#giosg_live_chat_dialog,
-	#giosg_chat_now_button {
+	#giosg_chat_now_button,
+	div[data-test-id="ChatWidgetButton"],
+	div[data-test-id="ChatWidgetWindow"] {
 		display: none !important;
 	}
 }
@@ -671,19 +688,19 @@ domain("java.com") {
 	}
 }
 @-moz-document domain("demokraatti.fi") {
-    if varSome {
-        div[class^="SinglePostStyles__Container-"] div.animated.pulse {
-            display: none !important;
-        }
-        div[class^="SinglePostStyles__Container-"] div[class^="FollowUsStyles__Container"] {
-            display: none !important;
-        }
-    }
-    if varNews {
-        div[class^="SinglePostStyles__Container-"] div[class^="MagazineStyles__Container-"] {
-            display: none !important;
-        }
-    }
+	if varSome {
+		div[class^="SinglePostStyles__Container-"] div.animated.pulse {
+			display: none !important;
+		}
+		div[class^="SinglePostStyles__Container-"] div[class^="FollowUsStyles__Container"] {
+			display: none !important;
+		}
+	}
+	if varNews {
+		div[class^="SinglePostStyles__Container-"] div[class^="MagazineStyles__Container-"] {
+			display: none !important;
+		}
+	}
 }
 @-moz-document domain("reddit.com") {
 	if varCookies {
@@ -731,4 +748,10 @@ domain("kuntatekniikka.fi") {
 		}
 	}
 }
-
+@-moz-document domain("data-systems.fi") {
+	if varCookies {
+		body > .pum-overlay.pum-theme-data-systems-popup-theme {
+			display: none !important;
+		}
+	}
+}
