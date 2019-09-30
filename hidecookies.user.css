@@ -40,6 +40,7 @@ if varCookies {
 	#cookielaw,
 	#cookielawwarning,
 	#cookienotify,
+	#CookieReportsBanner,
 	#cookies-info,
 	#dna-gdpr-info,
 	#ePrivacyDisclaimer,
@@ -73,6 +74,7 @@ if varCookies {
 	.js-cookie-notice,
 	.mtvcookienotificationscontainer,
 	.notice-cookie,
+	.notice--cookie,
 	.optanon-alert-box-wrapper,
 	.qc-cmp-showing {
 		display: none !important;
@@ -690,3 +692,43 @@ domain("java.com") {
 		}
 	}
 }
+@-moz-document domain("polygon.com") {
+	if varCookies {
+		#privacy-consent {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("kuntalehti.fi"),
+domain("kunta.tv"),
+domain("kuntatekniikka.fi") {
+	if varSome {
+		.floating-social-buttons,
+		.share-article {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("karjalainen.fi") {
+	if varNews {
+		body > div[class^="cf_overlay_359_557"].cf-container-wrapper {
+			display: none !important;
+		}
+		body {
+			overflow: visible !important;
+		}
+	}
+}
+@-moz-document domain("ikea.com") {
+	if varNews {
+		div[role="alertdialog"].fip-toast {
+			display: none !important;
+		}
+	}
+	if varCookies {
+		.js-cookie-info__panel {
+			display: none !important;
+		}
+	}
+}
+
