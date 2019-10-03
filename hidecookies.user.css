@@ -26,6 +26,7 @@ if varCookies {
 	#bCookieSlide,
 	#banner-accept-cookies,
 	#ckieconsent,
+	#cmp-container-id,
 	#consent_blackbar,
 	#cookie-banner,
 	#cookie-consent,
@@ -37,6 +38,7 @@ if varCookies {
 	#cookie-notice,
 	#cookie-notification,
 	#cookie-policy-info,
+	#cookie-policy-notification,
 	#cookieDisclaimer,
 	#cookieWarning,
 	#cookie_notice,
@@ -44,9 +46,11 @@ if varCookies {
 	#cookieinfolayer,
 	#cookielaw,
 	#cookielawwarning,
+	#cookieNotice,
 	#cookienotify,
 	#CookieReportsBanner,
 	#cookies-info,
+	#CybotCookiebotDialog,
 	#dna-gdpr-info,
 	#ePrivacyDisclaimer,
 	#ensNotifyBanner,
@@ -54,6 +58,7 @@ if varCookies {
 	#gdpr-banner,
 	#GDPRConsent,
 	#gdprpopup,
+	#gdpr_popup_container,
 	#hv-gdpr,
 	#jc-cookie-notice,
 	#js-gdpr-consent-banner,
@@ -70,6 +75,7 @@ if varCookies {
 	.cc-cookies,
 	.cc-window,
 	.cc_banner-wrapper,
+	.cookie-acceptancebox,
 	.cookie-alert,
 	.cookie-banner,
 	.cookie-consent,
@@ -87,9 +93,11 @@ if varCookies {
 	.gdpr-consent-banner,
 	.js-cookie-consent,
 	.js-cookie-notice,
+	.js-cookie-notification,
 	.mtvcookienotificationscontainer,
 	.notice--cookie,
 	.notice-cookie,
+	.notification--cookie,
 	.optanon-alert-box-wrapper,
 	.qc-cmp-showing {
 		display: none !important;
@@ -752,6 +760,45 @@ domain("kuntatekniikka.fi") {
 	if varCookies {
 		body > .pum-overlay.pum-theme-data-systems-popup-theme {
 			display: none !important;
+		}
+	}
+}
+@-moz-document domain("newsner.com") {
+	if varSome {
+		#wsfb-container,
+		#share-sidebar,
+		#share-buttons,
+		.inline-share-buttons {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("pcworld.com") {
+	if varCookies {
+		div[id^="sp_message_"] {
+			display: none !important;
+		}
+		div[class^="sp_veil"] {
+			display: none !important;
+		}
+		html.sp-message-open {
+			left: auto !important;
+			right: auto !important;
+			bottom: auto !important;
+			top: auto !important;
+			overflow: visible !important;
+			margin-top: 0px !important;
+			position: static !important;
+		}
+	}
+}
+@-moz-document domain("spiceworks.com") {
+	if varNews {
+		.join-login-wrapper {
+			display: none !important;
+		}
+		body {
+			overflow: visible !important;
 		}
 	}
 }
