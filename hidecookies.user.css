@@ -3,7 +3,7 @@
 @namespace      github.com/devmltk/HideCookiesWarnings
 @homepageURL    https://www.github.com/devmltk/HideCookieWarnings
 @updateURL      https://github.com/devmltk/HideCookieWarnings/raw/master/hidecookies.user.css
-@version        0.0.3
+@version        0.0.4
 @description 	Piilota evästekyltit, uutiskirjeet, mainostenesto valitukset, somejako nappulat ja muut turhat elementit sivustoilta.
 @author         DevMltk
 @license        CC-BY-NC-ND-4.0
@@ -103,9 +103,9 @@ if varCookies {
 		.qc-cmp-showing {
 			display: none !important;
 		}
-		.qc-cmp-ui-showing {
-			overflow: visible;
-		}
+	}
+	.qc-cmp-ui-showing {
+		overflow: visible;
 	}
 }
 if varSome {
@@ -801,6 +801,20 @@ domain("kuntatekniikka.fi") {
 		}
 		body {
 			overflow: visible !important;
+		}
+	}
+}
+@-moz-document domain("lego.com") {
+	if varCookies {
+		div[class^="CookieBannerstyles__Wrapper-"] {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("sourceforge.net") {
+	if varNews {
+		#newsletter-floating {
+			display: none !important;
 		}
 	}
 }
