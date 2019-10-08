@@ -24,6 +24,9 @@
 if varCookies {
 	body {
 		cookie-consent,
+		#_evidon-barrier-wrapper,
+		#_evidon-banner,
+		#_evidon_banner,
 		#bCookieSlide,
 		#banner-accept-cookies,
 		#ckieconsent,
@@ -66,6 +69,7 @@ if varCookies {
 		#js_cookie_window,
 		#kaleva-cookie-consent,
 		#msccBanner,
+		#notice-cookie-block,
 		#OnninenCookieInfo,
 		#optanon,
 		#optanon-popup-wrapper,
@@ -154,7 +158,8 @@ domain("hintaseuranta.fi"),
 domain("huuto.net"),
 domain("nelonen.fi"),
 domain("sahkovertailu.fi"),
-domain("is.fi") {
+domain("is.fi"),
+domain("rakennuslehti.fi") {
 	/* SanomaMedia */
 	if varCookies {
 		#sccm-container {
@@ -493,6 +498,12 @@ domain("suomifutis.com") {
 }
 @-moz-document domain("google.com"),
 domain("google.fi") {
+	if varCookies {
+		#consent-bump,
+		#epbar {
+			display: none !important;
+		}
+	}
 	if varMisc {
 		div[jscontroller][aria-label="Puhehaku"],
 		div[jscontroller][aria-label="Search by voice"],
@@ -509,13 +520,6 @@ domain("google.fi") {
 		}
 		body {
 			overflow: visible !important;
-		}
-	}
-}
-@-moz-document domain("vmware.com") {
-	if varCookies {
-		#_evidon_banner {
-			display: none !important;
 		}
 	}
 }
@@ -814,6 +818,92 @@ domain("kuntatekniikka.fi") {
 @-moz-document domain("sourceforge.net") {
 	if varNews {
 		#newsletter-floating {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("facebook.com") {
+	if varCookies {
+		div[data-cookiebanner="banner"] {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("twitter.com") {
+	if varCookies {
+		#banners > div {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("disney.fi") {
+	if varCookies {
+		html.cookie-banner-visible #disney-explicit-consent-prompt {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("nbcnews.com") {
+	if varCookies {
+		#cx_bottom_banner {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("speedtest.net") {
+	if varMisc {
+		.notification-container {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("bosch-professional.com") {
+	if varCookies {
+		div[id^="privacy-settings-"].BoschPrivacySettingsV2 {
+			display: none !important;
+		}
+		body.privacy-settings-open > :not(.BoschPrivacySettingsV2) {
+			-webkit-filter: none;
+			filter: none;
+		}
+	}
+}
+@-moz-document domain("tp-link.com") {
+	if varCookies {
+		.cookie-used-note {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("twitch.tv") {
+	if varCookies {
+		.toast-manager__container.tw-align-items-center.tw-fixed.tw-flex-column.tw-justify-content-center.tw-z-above {
+			display: none !important;
+		}
+	}
+	if varMisc {
+		.highwind-video-player__default-player > .highwind-video-player__overlay > .tw-c-text-overlay {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("farnell.com") {
+	if varCookies {
+		#mktg_Cookie_Wrap {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("abb.com") {
+	if varCookies {
+		#abb-cookie-banner {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("ensto.com") {
+	if varCookies {
+		ensto-cookie-notification {
 			display: none !important;
 		}
 	}
