@@ -31,6 +31,7 @@ if varCookies {
 		#banner-accept-cookies,
 		#ckieconsent,
 		#cmp-container-id,
+		#cmp-faktor-io-parent,
 		#consent_blackbar,
 		#cookie-banner,
 		#cookie-consent,
@@ -58,6 +59,7 @@ if varCookies {
 		#dna-gdpr-info,
 		#ePrivacyDisclaimer,
 		#ensNotifyBanner,
+		#eu_cookie,
 		#footer-cookie,
 		#gdpr-banner,
 		#GDPRConsent,
@@ -73,6 +75,7 @@ if varCookies {
 		#OnninenCookieInfo,
 		#optanon,
 		#optanon-popup-wrapper,
+		#privacy-consent,
 		#purch-gdpr-banner,
 		#v-cookielaw,
 		._cookie-banner,
@@ -904,6 +907,49 @@ domain("kuntatekniikka.fi") {
 @-moz-document domain("ensto.com") {
 	if varCookies {
 		ensto-cookie-notification {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("hilti.fi"),
+domain("hilti.com") {
+	if varCookies {
+		main > div[id^="legal-"],
+		body > div#didomi-custom-host {
+			display: none !important;
+		}
+	}
+}
+@-moz-document domain("fandom.com") {
+	if varCookies {
+		div[data-tracking-opt-in-overlay="true"] {
+			display: none !important;
+		}
+		body {
+			overflow: visible !important;
+		}
+	}
+}
+/* Menu broken */
+@-moz-document domain("gadgethacks.com") {
+	if varCookies {
+		#sidebars > .consentContainer {
+			display: none !important;
+		}
+		body.prep-sidebar #main-wrapper {
+			overflow: visible !important;
+			position: relative !important;
+		}
+	}
+	if varNews {
+		#content-container div.cta-newsletter {
+			display: none !important;
+		}
+	}
+	if varSome {
+		body.show-sidebar #top-nav .top-nav-links .social-cta,
+		#top-nav .search-active .top-nav-links .social-cta,
+		#top-nav.small-logo .search-active .top-nav-links .social-cta {
 			display: none !important;
 		}
 	}
