@@ -3,7 +3,7 @@
 @namespace      github.com/devmltk/HideCookiesWarnings
 @homepageURL    https://www.github.com/devmltk/HideCookieWarnings
 @updateURL      https://github.com/devmltk/HideCookieWarnings/raw/master/hidecookies.user.css
-@version        0.0.7
+@version        0.0.8
 @description 	Piilota evästekyltit, uutiskirjeet, mainostenesto valitukset, somejako nappulat ja muut turhat elementit sivustoilta.
 @author         DevMltk
 @license        CC-BY-NC-ND-4.0
@@ -666,6 +666,14 @@ domain("java.com") {
 		}
 		#header {
 			margin-top: 60px !important;
+		}
+	}
+	if varCookies {
+		.modals-overlay {
+			display: none;
+		}
+		body .page-wrapper.cookie_popup_exists .header__top {
+			top: 0px;
 		}
 	}
 }
