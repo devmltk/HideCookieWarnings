@@ -1,9 +1,7 @@
 /* ==UserStyle==
-@name           Siivoa verkkosivut
-@namespace      github.com/devmltk/HideCookiesWarnings
-@homepageURL    https://www.github.com/devmltk/HideCookieWarnings
-@updateURL      https://github.com/devmltk/HideCookieWarnings/raw/master/hidecookies.user.css
-@version        0.0.8
+@name           Siivoa verkkosivut TEST
+@namespace      github.com/devmltk/HideCookiesWarnings  
+@version        0.0.9
 @description 	Piilota evästekyltit, uutiskirjeet, mainostenesto valitukset, somejako nappulat ja muut turhat elementit sivustoilta.
 @author         DevMltk
 @license        CC-BY-NC-ND-4.0
@@ -14,11 +12,17 @@
 @var            checkbox varSome    "Piilota somejaot"  1
 @var            checkbox varChat    "Piilota chat"  1
 @var            checkbox varMisc    "Piilota muut turhat, mm. mainostenesto/ohje ikkunat"  1
+@var            checkbox varFix    	"Korjaa sivustojen ulkoasua"  1
 ==/UserStyle== */
 /* 
 --
 -- Generic Rules 
 --
+*/
+/*
+TODO:
+https://www.forbes.com
+
 */
 if varCookies {
 	body {
@@ -136,7 +140,6 @@ domain("kotiliesi.fi"),
 domain("suomenkuvalehti.fi"),
 domain("rakennusmaailma.fi"),
 domain("tekniikanmaailma.fi"),
-domain("nettiauto.fi"),
 domain("ampparit.fi"),
 domain("plaza.net"),
 domain("huutokaupat.fi"),
@@ -144,6 +147,12 @@ regexp("(http[s]*:\\/\\/|)[www.]*netti(vene|markkina|auto|moto|kone|karavaani|va
 	/* OravaMedia */
 	if varCookies {
 		#cmp-faktor-io-parent {
+			display: none !important;
+		}
+	}
+	if varFix {
+		#overlay_spacer,
+		div.grey_box.dfpBoxBottom {
 			display: none !important;
 		}
 	}
@@ -255,7 +264,8 @@ domain("katsastushinnat.fi"),
 domain("etuovi.com"),
 domain("telkku.com"),
 domain("mikrobitti.fi"),
-domain("vuokraovi.com"), domain("tekniikkatalous.fi") {
+domain("vuokraovi.com"),
+domain("tekniikkatalous.fi") {
 	/* AlmaMedia */
 	if varCookies {
 		#bottomBanner,
@@ -318,21 +328,21 @@ domain("vuokraovi.com"), domain("tekniikkatalous.fi") {
 	}
 }
 @-moz-document domain("mikrobitti.fi") {
-	if varSome  {
+	if varSome {
 		section > div.feWBdW {
 			display: none !important;
 		}
 	}
 }
 @-moz-document domain("tekniikkatalous.fi") {
-	if varSome  {
+	if varSome {
 		section > div > div.frSHmB {
 			display: none !important;
 		}
 	}
 }
 @-moz-document domain("satakunnankansa.fi") {
-	if varSome  {
+	if varSome {
 		button[aria-label="Tilaa"] {
 			display: none !important;
 		}
@@ -664,16 +674,13 @@ domain("java.com") {
 		div#pop {
 			display: none !important;
 		}
-		#header {
-			margin-top: 60px !important;
-		}
 	}
 	if varCookies {
 		.modals-overlay {
 			display: none;
 		}
-		body .page-wrapper.cookie_popup_exists .header__top {
-			top: 0px;
+		body .page-wrapper.cookie_popup_exists > header.page-header {
+			padding-top: 60px;
 		}
 	}
 }
@@ -1023,6 +1030,25 @@ domain("hilti.com") {
 @-moz-document domain("puuilo.fi") {
 	if varNews {
 		#mc_embed_signup {
+			display: none !important;
+		}
+	}
+}
+
+@-moz-document domain("forbes.com") {
+	if varMisc {
+		body.adblock-on > div:first-of-type {
+			display: none !important;
+		}
+		body.body--no-scroll {
+			overflow: visible;
+		}
+	}
+}
+@-moz-document domain("loukko.com") {
+	if varNews {
+		#modal,
+		#overlay {
 			display: none !important;
 		}
 	}
