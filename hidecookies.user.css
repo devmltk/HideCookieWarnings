@@ -1,7 +1,7 @@
 /* ==UserStyle==
-@name           Siivoa verkkosivut TEST
+@name           Siivoa verkkosivut
 @namespace      github.com/devmltk/HideCookiesWarnings  
-@version        0.0.9
+@version        0.1.0
 @description 	Piilota evästekyltit, uutiskirjeet, mainostenesto valitukset, somejako nappulat ja muut turhat elementit sivustoilta.
 @author         DevMltk
 @license        CC-BY-NC-ND-4.0
@@ -18,11 +18,6 @@
 --
 -- Generic Rules 
 --
-*/
-/*
-TODO:
-https://www.forbes.com
-
 */
 if varCookies {
 	body {
